@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pneumonia Classifier</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+        background: url("{{ url_for('static', filename='bg.jpg') }}") no-repeat center center fixed;
+        background-size: cover;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-start min-h-screen bg-gray-100 bg-opacity-50">
+    <h1 class="text-4xl font-bold text-gray-900 mt-10 mb-6">Pneumonia Classification</h1>
+    
+    <form method="POST" enctype="multipart/form-data" class="flex flex-col items-center mb-6">
+        <input type="file" name="file" class="mb-4 p-2 border rounded" accept="image/*">
+        <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Classify</button>
+    </form>
+
+    {% if img_data %}
+    <div class="flex flex-col items-center bg-white bg-opacity-90 p-4 rounded shadow mb-4">
+        <p class="text-xl font-semibold mb-2">Uploaded Image:</p>
+        <img src="data:image/png;base64,{{ img_data }}" class="max-w-xs rounded border" alt="Uploaded Image">
+    </div>
+    {% endif %}
+
+    {% if result %}
+    <div class="flex flex-col items-center bg-white bg-opacity-90 p-4 rounded shadow">
+        <p class="text-2xl font-semibold mb-2">Prediction:</p>
+        <p class="text-xl font-bold {{ color_class }}">{{ result }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
