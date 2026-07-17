@@ -5,8 +5,6 @@ Pneumonia Classifier is a **Flask-based web application** that predicts the pres
 
 The model was trained using public dataset [Chest X-Ray Images for Classification](https://data.mendeley.com/datasets/rscbjbr9sj/2)
 
-Check it out here 👉 [Pneumonia Classifier](https://github.com/mashakrot/pneumonia_classifier)
-
 ## <a name="features">Features</a>
 👉 Upload chest X-rays, it accepts .jpg, .png files for analysis.
 
